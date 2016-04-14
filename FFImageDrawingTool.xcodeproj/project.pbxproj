@@ -1,0 +1,528 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C85D84021CAD4FAE00EB9D55 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85D84011CAD4FAE00EB9D55 /* AppDelegate.swift */; };
+		C85D84071CAD4FAE00EB9D55 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C85D84051CAD4FAE00EB9D55 /* Main.storyboard */; };
+		C85D84091CAD4FAE00EB9D55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C85D84081CAD4FAE00EB9D55 /* Assets.xcassets */; };
+		C85D840C1CAD4FAE00EB9D55 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C85D840A1CAD4FAE00EB9D55 /* LaunchScreen.storyboard */; };
+		C85D84171CAD4FAE00EB9D55 /* FFImageDrawingToolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85D84161CAD4FAE00EB9D55 /* FFImageDrawingToolTests.swift */; };
+		C85D84221CAD4FAE00EB9D55 /* FFImageDrawingToolUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85D84211CAD4FAE00EB9D55 /* FFImageDrawingToolUITests.swift */; };
+		C85D84301CAD503E00EB9D55 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85D842F1CAD503E00EB9D55 /* ImageViewController.swift */; };
+		C85D84321CAD506A00EB9D55 /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85D84311CAD506A00EB9D55 /* ColorPickerViewController.swift */; };
+		C85D84341CAD507E00EB9D55 /* DrawingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85D84331CAD507E00EB9D55 /* DrawingView.swift */; };
+		C87451931CBFADA30025CA68 /* SwiftHUEColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87451921CBFADA30025CA68 /* SwiftHUEColorPicker.swift */; };
+		C895C2AC1CAD5D2200D7DFE2 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C895C2AB1CAD5D2200D7DFE2 /* MainViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C85D84131CAD4FAE00EB9D55 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C85D83F61CAD4FAE00EB9D55 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C85D83FD1CAD4FAE00EB9D55;
+			remoteInfo = FFImageDrawingTool;
+		};
+		C85D841E1CAD4FAE00EB9D55 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C85D83F61CAD4FAE00EB9D55 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C85D83FD1CAD4FAE00EB9D55;
+			remoteInfo = FFImageDrawingTool;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C85D83FE1CAD4FAE00EB9D55 /* FFImageDrawingTool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FFImageDrawingTool.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C85D84011CAD4FAE00EB9D55 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C85D84061CAD4FAE00EB9D55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C85D84081CAD4FAE00EB9D55 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C85D840B1CAD4FAE00EB9D55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C85D840D1CAD4FAE00EB9D55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C85D84121CAD4FAE00EB9D55 /* FFImageDrawingToolTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FFImageDrawingToolTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C85D84161CAD4FAE00EB9D55 /* FFImageDrawingToolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FFImageDrawingToolTests.swift; sourceTree = "<group>"; };
+		C85D84181CAD4FAE00EB9D55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C85D841D1CAD4FAE00EB9D55 /* FFImageDrawingToolUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FFImageDrawingToolUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C85D84211CAD4FAE00EB9D55 /* FFImageDrawingToolUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FFImageDrawingToolUITests.swift; sourceTree = "<group>"; };
+		C85D84231CAD4FAE00EB9D55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C85D842F1CAD503E00EB9D55 /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
+		C85D84311CAD506A00EB9D55 /* ColorPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPickerViewController.swift; sourceTree = "<group>"; };
+		C85D84331CAD507E00EB9D55 /* DrawingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingView.swift; sourceTree = "<group>"; };
+		C87451921CBFADA30025CA68 /* SwiftHUEColorPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftHUEColorPicker.swift; sourceTree = "<group>"; };
+		C895C2AB1CAD5D2200D7DFE2 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C85D83FB1CAD4FAE00EB9D55 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C85D840F1CAD4FAE00EB9D55 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C85D841A1CAD4FAE00EB9D55 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C85D83F51CAD4FAE00EB9D55 = {
+			isa = PBXGroup;
+			children = (
+				C85D84001CAD4FAE00EB9D55 /* FFImageDrawingTool */,
+				C85D84151CAD4FAE00EB9D55 /* FFImageDrawingToolTests */,
+				C85D84201CAD4FAE00EB9D55 /* FFImageDrawingToolUITests */,
+				C85D83FF1CAD4FAE00EB9D55 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C85D83FF1CAD4FAE00EB9D55 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C85D83FE1CAD4FAE00EB9D55 /* FFImageDrawingTool.app */,
+				C85D84121CAD4FAE00EB9D55 /* FFImageDrawingToolTests.xctest */,
+				C85D841D1CAD4FAE00EB9D55 /* FFImageDrawingToolUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C85D84001CAD4FAE00EB9D55 /* FFImageDrawingTool */ = {
+			isa = PBXGroup;
+			children = (
+				C85D84011CAD4FAE00EB9D55 /* AppDelegate.swift */,
+				C895C2AB1CAD5D2200D7DFE2 /* MainViewController.swift */,
+				C85D842F1CAD503E00EB9D55 /* ImageViewController.swift */,
+				C85D84311CAD506A00EB9D55 /* ColorPickerViewController.swift */,
+				C85D84331CAD507E00EB9D55 /* DrawingView.swift */,
+				C87451921CBFADA30025CA68 /* SwiftHUEColorPicker.swift */,
+				C85D84051CAD4FAE00EB9D55 /* Main.storyboard */,
+				C85D84081CAD4FAE00EB9D55 /* Assets.xcassets */,
+				C85D840A1CAD4FAE00EB9D55 /* LaunchScreen.storyboard */,
+				C85D840D1CAD4FAE00EB9D55 /* Info.plist */,
+			);
+			path = FFImageDrawingTool;
+			sourceTree = "<group>";
+		};
+		C85D84151CAD4FAE00EB9D55 /* FFImageDrawingToolTests */ = {
+			isa = PBXGroup;
+			children = (
+				C85D84161CAD4FAE00EB9D55 /* FFImageDrawingToolTests.swift */,
+				C85D84181CAD4FAE00EB9D55 /* Info.plist */,
+			);
+			path = FFImageDrawingToolTests;
+			sourceTree = "<group>";
+		};
+		C85D84201CAD4FAE00EB9D55 /* FFImageDrawingToolUITests */ = {
+			isa = PBXGroup;
+			children = (
+				C85D84211CAD4FAE00EB9D55 /* FFImageDrawingToolUITests.swift */,
+				C85D84231CAD4FAE00EB9D55 /* Info.plist */,
+			);
+			path = FFImageDrawingToolUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C85D83FD1CAD4FAE00EB9D55 /* FFImageDrawingTool */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C85D84261CAD4FAE00EB9D55 /* Build configuration list for PBXNativeTarget "FFImageDrawingTool" */;
+			buildPhases = (
+				C85D83FA1CAD4FAE00EB9D55 /* Sources */,
+				C85D83FB1CAD4FAE00EB9D55 /* Frameworks */,
+				C85D83FC1CAD4FAE00EB9D55 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FFImageDrawingTool;
+			productName = FFImageDrawingTool;
+			productReference = C85D83FE1CAD4FAE00EB9D55 /* FFImageDrawingTool.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C85D84111CAD4FAE00EB9D55 /* FFImageDrawingToolTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C85D84291CAD4FAE00EB9D55 /* Build configuration list for PBXNativeTarget "FFImageDrawingToolTests" */;
+			buildPhases = (
+				C85D840E1CAD4FAE00EB9D55 /* Sources */,
+				C85D840F1CAD4FAE00EB9D55 /* Frameworks */,
+				C85D84101CAD4FAE00EB9D55 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C85D84141CAD4FAE00EB9D55 /* PBXTargetDependency */,
+			);
+			name = FFImageDrawingToolTests;
+			productName = FFImageDrawingToolTests;
+			productReference = C85D84121CAD4FAE00EB9D55 /* FFImageDrawingToolTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		C85D841C1CAD4FAE00EB9D55 /* FFImageDrawingToolUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C85D842C1CAD4FAE00EB9D55 /* Build configuration list for PBXNativeTarget "FFImageDrawingToolUITests" */;
+			buildPhases = (
+				C85D84191CAD4FAE00EB9D55 /* Sources */,
+				C85D841A1CAD4FAE00EB9D55 /* Frameworks */,
+				C85D841B1CAD4FAE00EB9D55 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C85D841F1CAD4FAE00EB9D55 /* PBXTargetDependency */,
+			);
+			name = FFImageDrawingToolUITests;
+			productName = FFImageDrawingToolUITests;
+			productReference = C85D841D1CAD4FAE00EB9D55 /* FFImageDrawingToolUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C85D83F61CAD4FAE00EB9D55 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0710;
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = "Feialoh Francis";
+				TargetAttributes = {
+					C85D83FD1CAD4FAE00EB9D55 = {
+						CreatedOnToolsVersion = 7.1;
+					};
+					C85D84111CAD4FAE00EB9D55 = {
+						CreatedOnToolsVersion = 7.1;
+						TestTargetID = C85D83FD1CAD4FAE00EB9D55;
+					};
+					C85D841C1CAD4FAE00EB9D55 = {
+						CreatedOnToolsVersion = 7.1;
+						TestTargetID = C85D83FD1CAD4FAE00EB9D55;
+					};
+				};
+			};
+			buildConfigurationList = C85D83F91CAD4FAE00EB9D55 /* Build configuration list for PBXProject "FFImageDrawingTool" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C85D83F51CAD4FAE00EB9D55;
+			productRefGroup = C85D83FF1CAD4FAE00EB9D55 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C85D83FD1CAD4FAE00EB9D55 /* FFImageDrawingTool */,
+				C85D84111CAD4FAE00EB9D55 /* FFImageDrawingToolTests */,
+				C85D841C1CAD4FAE00EB9D55 /* FFImageDrawingToolUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C85D83FC1CAD4FAE00EB9D55 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C85D840C1CAD4FAE00EB9D55 /* LaunchScreen.storyboard in Resources */,
+				C85D84091CAD4FAE00EB9D55 /* Assets.xcassets in Resources */,
+				C85D84071CAD4FAE00EB9D55 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C85D84101CAD4FAE00EB9D55 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C85D841B1CAD4FAE00EB9D55 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C85D83FA1CAD4FAE00EB9D55 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C87451931CBFADA30025CA68 /* SwiftHUEColorPicker.swift in Sources */,
+				C85D84301CAD503E00EB9D55 /* ImageViewController.swift in Sources */,
+				C85D84341CAD507E00EB9D55 /* DrawingView.swift in Sources */,
+				C85D84321CAD506A00EB9D55 /* ColorPickerViewController.swift in Sources */,
+				C85D84021CAD4FAE00EB9D55 /* AppDelegate.swift in Sources */,
+				C895C2AC1CAD5D2200D7DFE2 /* MainViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C85D840E1CAD4FAE00EB9D55 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C85D84171CAD4FAE00EB9D55 /* FFImageDrawingToolTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C85D84191CAD4FAE00EB9D55 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C85D84221CAD4FAE00EB9D55 /* FFImageDrawingToolUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C85D84141CAD4FAE00EB9D55 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C85D83FD1CAD4FAE00EB9D55 /* FFImageDrawingTool */;
+			targetProxy = C85D84131CAD4FAE00EB9D55 /* PBXContainerItemProxy */;
+		};
+		C85D841F1CAD4FAE00EB9D55 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C85D83FD1CAD4FAE00EB9D55 /* FFImageDrawingTool */;
+			targetProxy = C85D841E1CAD4FAE00EB9D55 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C85D84051CAD4FAE00EB9D55 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C85D84061CAD4FAE00EB9D55 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C85D840A1CAD4FAE00EB9D55 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C85D840B1CAD4FAE00EB9D55 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C85D84241CAD4FAE00EB9D55 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C85D84251CAD4FAE00EB9D55 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C85D84271CAD4FAE00EB9D55 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = FFImageDrawingTool/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.feialoh.FFImageDrawingTool;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C85D84281CAD4FAE00EB9D55 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = FFImageDrawingTool/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.feialoh.FFImageDrawingTool;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C85D842A1CAD4FAE00EB9D55 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = FFImageDrawingToolTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.feialoh.FFImageDrawingToolTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FFImageDrawingTool.app/FFImageDrawingTool";
+			};
+			name = Debug;
+		};
+		C85D842B1CAD4FAE00EB9D55 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = FFImageDrawingToolTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.feialoh.FFImageDrawingToolTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FFImageDrawingTool.app/FFImageDrawingTool";
+			};
+			name = Release;
+		};
+		C85D842D1CAD4FAE00EB9D55 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = FFImageDrawingToolUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.feialoh.FFImageDrawingToolUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = FFImageDrawingTool;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		C85D842E1CAD4FAE00EB9D55 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = FFImageDrawingToolUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.feialoh.FFImageDrawingToolUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = FFImageDrawingTool;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C85D83F91CAD4FAE00EB9D55 /* Build configuration list for PBXProject "FFImageDrawingTool" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C85D84241CAD4FAE00EB9D55 /* Debug */,
+				C85D84251CAD4FAE00EB9D55 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C85D84261CAD4FAE00EB9D55 /* Build configuration list for PBXNativeTarget "FFImageDrawingTool" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C85D84271CAD4FAE00EB9D55 /* Debug */,
+				C85D84281CAD4FAE00EB9D55 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C85D84291CAD4FAE00EB9D55 /* Build configuration list for PBXNativeTarget "FFImageDrawingToolTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C85D842A1CAD4FAE00EB9D55 /* Debug */,
+				C85D842B1CAD4FAE00EB9D55 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C85D842C1CAD4FAE00EB9D55 /* Build configuration list for PBXNativeTarget "FFImageDrawingToolUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C85D842D1CAD4FAE00EB9D55 /* Debug */,
+				C85D842E1CAD4FAE00EB9D55 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C85D83F61CAD4FAE00EB9D55 /* Project object */;
+}
