@@ -268,7 +268,7 @@
         <!--Color Picker View Controller-->
         <scene sceneID="KXt-ye-MSY">
             <objects>
-                <viewController id="pbW-g4-mLh" customClass="ColorPickerViewController" customModule="iDent_Connect" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="pbW-g4-mLh" customClass="ColorPickerViewController" customModule="FFImageDrawingTool" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qab-x5-rIF"/>
                         <viewControllerLayoutGuide type="bottom" id="aQM-WS-zl6"/>
@@ -277,7 +277,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="300" height="400"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CDZ-W9-7zJ" userLabel="Horizontal Color Picker" customClass="SwiftHUEColorPicker" customModule="iDent_Connect" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CDZ-W9-7zJ" userLabel="Horizontal Color Picker" customClass="SwiftHUEColorPicker" customModule="FFImageDrawingTool" customModuleProvider="target">
                                 <rect key="frame" x="60" y="178" width="180" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -285,7 +285,7 @@
                                     <constraint firstAttribute="width" constant="180" id="qS4-TM-cZZ"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eXP-Ey-KEq" userLabel="Horizontal Brightness Picker" customClass="SwiftHUEColorPicker" customModule="iDent_Connect" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eXP-Ey-KEq" userLabel="Horizontal Brightness Picker" customClass="SwiftHUEColorPicker" customModule="FFImageDrawingTool" customModuleProvider="target">
                                 <rect key="frame" x="60" y="228" width="180" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -293,7 +293,7 @@
                                     <constraint firstAttribute="width" constant="180" id="drd-qY-rqJ"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6U7-r2-4dI" userLabel="Horizontal Alpha Picker" customClass="SwiftHUEColorPicker" customModule="iDent_Connect" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6U7-r2-4dI" userLabel="Horizontal Alpha Picker" customClass="SwiftHUEColorPicker" customModule="FFImageDrawingTool" customModuleProvider="target">
                                 <rect key="frame" x="60" y="278" width="180" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -301,7 +301,7 @@
                                     <constraint firstAttribute="height" constant="30" id="glF-iv-Ef0"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lVr-9p-sr9" userLabel="Horizontal Saturation Picker" customClass="SwiftHUEColorPicker" customModule="iDent_Connect" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lVr-9p-sr9" userLabel="Horizontal Saturation Picker" customClass="SwiftHUEColorPicker" customModule="FFImageDrawingTool" customModuleProvider="target">
                                 <rect key="frame" x="60" y="328" width="180" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
