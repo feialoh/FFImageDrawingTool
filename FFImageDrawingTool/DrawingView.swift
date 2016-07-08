@@ -3,7 +3,7 @@
 //  FFImageDrawingTool
 //
 //  Created by feialoh on 10/02/16.
-//  Copyright © 2016 Cabot. All rights reserved.
+//  Copyright © 2016 Feialoh Francis. All rights reserved.
 //
 
 import UIKit
