@@ -33,20 +33,20 @@ class MainViewController: UIViewController,ImageSelectorDelegate,UIImagePickerCo
     }
     
     
-    @IBAction func imagePickerAction(sender: UIButton) {
+    @IBAction func imagePickerAction(_ sender: UIButton) {
         
-        let alert:UIAlertController=UIAlertController(title: "Choose Image", message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
-        let cameraAction = UIAlertAction(title: "Take Photo", style: UIAlertActionStyle.Default)
+        let alert:UIAlertController=UIAlertController(title: "Choose Image", message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
+        let cameraAction = UIAlertAction(title: "Take Photo", style: UIAlertActionStyle.default)
             {
                 UIAlertAction in
                 self.openCamera()
         }
-        let photoLibraryAction = UIAlertAction(title: "Photo Library", style: UIAlertActionStyle.Default)
+        let photoLibraryAction = UIAlertAction(title: "Photo Library", style: UIAlertActionStyle.default)
             {
                 UIAlertAction in
                 self.openLibrary()
         }
-        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel)
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel)
             {
                 UIAlertAction in
         }
@@ -56,9 +56,9 @@ class MainViewController: UIViewController,ImageSelectorDelegate,UIImagePickerCo
         alert.addAction(cameraAction)
         alert.addAction(cancelAction)
         // Present the controller
-        if UIDevice.currentDevice().userInterfaceIdiom == .Phone
+        if UIDevice.current.userInterfaceIdiom == .phone
         {
-            self.presentViewController(alert, animated: true, completion: nil)
+            self.present(alert, animated: true, completion: nil)
         }
         else
         {
@@ -66,7 +66,7 @@ class MainViewController: UIViewController,ImageSelectorDelegate,UIImagePickerCo
                 popoverController.sourceView = sender
                 popoverController.sourceRect = sender.bounds
             }
-            self.presentViewController(alert, animated: true, completion: nil)
+            self.present(alert, animated: true, completion: nil)
         }
     }
     
@@ -82,10 +82,10 @@ class MainViewController: UIViewController,ImageSelectorDelegate,UIImagePickerCo
     //To open camera
     func openCamera()
     {
-        if(UIImagePickerController .isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera))
+        if(UIImagePickerController .isSourceTypeAvailable(UIImagePickerControllerSourceType.camera))
         {
-            imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
-            self .presentViewController(imagePicker, animated: true, completion: nil)
+            imagePicker.sourceType = UIImagePickerControllerSourceType.camera
+            self .present(imagePicker, animated: true, completion: nil)
         }
         else
         {
@@ -97,16 +97,16 @@ class MainViewController: UIViewController,ImageSelectorDelegate,UIImagePickerCo
     //To open photo library
     func openLibrary()
     {
-        imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-        if UIDevice.currentDevice().userInterfaceIdiom == .Phone
+        imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
+        if UIDevice.current.userInterfaceIdiom == .phone
         {
-            self.presentViewController(imagePicker, animated: true, completion: nil)
+            self.present(imagePicker, animated: true, completion: nil)
         }
         else
         {
-            imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+            imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
             
-            self.presentViewController(imagePicker, animated: true, completion: nil)
+            self.present(imagePicker, animated: true, completion: nil)
         }
     }
     
@@ -114,7 +114,7 @@ class MainViewController: UIViewController,ImageSelectorDelegate,UIImagePickerCo
     // MARK: - Custom Image view delegate methods
     /*===============================================================================*/
     
-    func selectedWithImage(chosenImage: UIImage, parent: AnyObject) {
+    func selectedWithImage(_ chosenImage: UIImage, parent: AnyObject) {
         
         selectedImage.image = chosenImage
         imageContainerScrollView.zoomScale = 1
@@ -132,7 +132,7 @@ class MainViewController: UIViewController,ImageSelectorDelegate,UIImagePickerCo
     }
     */
 
-    func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
+    func viewForZoomingInScrollView(_ scrollView: UIScrollView) -> UIView? {
         return selectedImage
     }
     
@@ -141,21 +141,21 @@ class MainViewController: UIViewController,ImageSelectorDelegate,UIImagePickerCo
     /*===============================================================================*/
     
     
-    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-        picker.dismissViewControllerAnimated(true, completion: { () -> Void in
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: { () -> Void in
         })
     }
     
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
         let chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage //2
         
-        picker.dismissViewControllerAnimated(true, completion: { () -> Void in
+        picker.dismiss(animated: true, completion: { () -> Void in
             
             
         })
         
-        let imageView = self.storyboard?.instantiateViewControllerWithIdentifier("ImageView") as! ImageViewController
+        let imageView = self.storyboard?.instantiateViewController(withIdentifier: "ImageView") as! ImageViewController
         
         imageView.delegate = self
         
@@ -163,7 +163,7 @@ class MainViewController: UIViewController,ImageSelectorDelegate,UIImagePickerCo
         
         imageView.viewType = "Picker"
         
-        self.presentViewController(imageView, animated: true, completion: nil)
+        self.present(imageView, animated: true, completion: nil)
     }
 
 }

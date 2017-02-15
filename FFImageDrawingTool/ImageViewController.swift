@@ -8,7 +8,7 @@
 import UIKit
 
 protocol ImageSelectorDelegate : class{
-    func selectedWithImage (chosenImage:UIImage,parent:AnyObject)
+    func selectedWithImage (_ chosenImage:UIImage,parent:AnyObject)
 }
 
 
@@ -47,11 +47,11 @@ class ImageViewController: UIViewController, UIScrollViewDelegate, UIPopoverPres
             imageContainerScrollView.maximumZoomScale = 2
         }
         
-        imageEditorToolView.hidden = viewType == "Show"
-        drawerView.hidden = viewType == "Show"
+        imageEditorToolView.isHidden = viewType == "Show"
+        drawerView.isHidden = viewType == "Show"
         
-        drawerView.selectedColor = UIColor.whiteColor()
-        drawerView.drawingMode = DrawingMode.Paint
+        drawerView.selectedColor = UIColor.white
+        drawerView.drawingMode = DrawingMode.paint
         drawerView.lineWidth = CGFloat(brushWidthSlider.value)
         segmentControl.selectedSegmentIndex = 0
     }
@@ -62,36 +62,36 @@ class ImageViewController: UIViewController, UIScrollViewDelegate, UIPopoverPres
     }
 
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ImageViewController.deviceRotatedInImageView), name: UIDeviceOrientationDidChangeNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ImageViewController.deviceRotatedInImageView), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
         
     }
     
-    override func viewWillDisappear(animated: Bool) {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+    override func viewWillDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self)
     }
     
     
-    func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         return mainImageView
     }
 
     
     // MARK: - Navigation
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "popoverSegue" {
-            let popoverViewController = segue.destinationViewController as! ColorPickerViewController
-            popoverViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
+            let popoverViewController = segue.destination as! ColorPickerViewController
+            popoverViewController.modalPresentationStyle = UIModalPresentationStyle.popover
             popoverViewController.popoverPresentationController!.delegate = self
             popoverViewController.delegate = self
             popoverViewController.selectedColor = drawerView.selectedColor
         }
     }
     
-    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
-        return UIModalPresentationStyle.None
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return UIModalPresentationStyle.none
     }
     
     
@@ -108,7 +108,7 @@ class ImageViewController: UIViewController, UIScrollViewDelegate, UIPopoverPres
     /*===============================================================================*/
     
     
-    func selectedWithColor(chosenColor: UIColor) {
+    func selectedWithColor(_ chosenColor: UIColor) {
         
         drawerView.selectedColor = chosenColor
         colorPickerButton.backgroundColor = chosenColor
@@ -121,12 +121,12 @@ class ImageViewController: UIViewController, UIScrollViewDelegate, UIPopoverPres
     
     //Done/Save button
     
-    @IBAction func doneButtonPressed(sender: UIButton) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func doneButtonPressed(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
         
         if viewType == "Picker"
         {
-            imageContainerScrollView.scrollEnabled = false
+            imageContainerScrollView.isScrollEnabled = false
             imageContainerScrollView.zoomScale = 1
             chatImageView.image = drawerView.saveImage(mainImageView)
             delegate.selectedWithImage(chatImageView.image!, parent: self)
@@ -134,7 +134,7 @@ class ImageViewController: UIViewController, UIScrollViewDelegate, UIPopoverPres
     }
     
     
-    @IBAction func removeTextFieldAction(sender: UIButton) {
+    @IBAction func removeTextFieldAction(_ sender: UIButton) {
         
         drawerView.removeTextView()
     }
@@ -143,43 +143,43 @@ class ImageViewController: UIViewController, UIScrollViewDelegate, UIPopoverPres
     
     //Drawing action buttons
     
-    @IBAction func toolSegmentControlAction(sender: UISegmentedControl) {
+    @IBAction func toolSegmentControlAction(_ sender: UISegmentedControl) {
         
         switch(sender.selectedSegmentIndex)
         {
             case 0 :        //Draw
                 
-                    drawerView.drawingMode = DrawingMode.Paint
-                    imageContainerScrollView.scrollEnabled = false
+                    drawerView.drawingMode = DrawingMode.paint
+                    imageContainerScrollView.isScrollEnabled = false
                     imageContainerScrollView.minimumZoomScale = 1.0
                     imageContainerScrollView.maximumZoomScale = 1.0
                     break
             
             case 1 :        //Erase
-                    drawerView.drawingMode = DrawingMode.Erase
-                    imageContainerScrollView.scrollEnabled = false
+                    drawerView.drawingMode = DrawingMode.erase
+                    imageContainerScrollView.isScrollEnabled = false
                     imageContainerScrollView.minimumZoomScale = 1.0
                     imageContainerScrollView.maximumZoomScale = 1.0
                     break
             
             case 2 :        //Reset
                     drawerView.reset()
-                    drawerView.drawingMode = DrawingMode.Paint
-                    imageContainerScrollView.scrollEnabled = false
+                    drawerView.drawingMode = DrawingMode.paint
+                    imageContainerScrollView.isScrollEnabled = false
                     imageContainerScrollView.zoomScale = 1
                     sender.selectedSegmentIndex = 0
                     break
             
             case 3 :        //Zoom
-                    drawerView.drawingMode = DrawingMode.Paint
+                    drawerView.drawingMode = DrawingMode.paint
                     imageContainerScrollView.minimumZoomScale = 1.0
                     imageContainerScrollView.maximumZoomScale = 2.0
-                    imageContainerScrollView.scrollEnabled = true
+                    imageContainerScrollView.isScrollEnabled = true
                     break
             
             case 4 :    //Text
                     drawerView.addTextView()
-                    drawerView.drawingMode = DrawingMode.None
+                    drawerView.drawingMode = DrawingMode.none
                     
             default :
                     break
@@ -189,7 +189,7 @@ class ImageViewController: UIViewController, UIScrollViewDelegate, UIPopoverPres
     
     //Brush/Eraser slider action
     
-    @IBAction func sliderChanged(sender: UISlider) {
+    @IBAction func sliderChanged(_ sender: UISlider) {
             drawerView.lineWidth = CGFloat(sender.value)
         
     }
@@ -198,9 +198,33 @@ class ImageViewController: UIViewController, UIScrollViewDelegate, UIPopoverPres
     
     //ColorPicker Action
     
-    @IBAction func colorPickerAction(sender: UIButton) {
+    @IBAction func colorPickerAction(_ sender: UIButton) {
         
     }
     
+    
+    func addTextViews()  {
+        
+        let gesture = UIPanGestureRecognizer(target: self, action: #selector(ImageViewController.userDragged(_:)))
+        let bottomTextField = UITextField(frame: CGRect(x: 0,y: 0,width: 100,height: 50))
+        bottomTextField.layer.borderColor = UIColor.blue.cgColor
+        bottomTextField.layer.borderWidth = 1.0
+        bottomTextField.addGestureRecognizer(gesture)
+        bottomTextField.isUserInteractionEnabled = true
+        
+        bottomTextField.text = "Enter your text here"
+        self.view.addSubview(bottomTextField)
+    }
+    
+    func userDragged(_ gesture: UIPanGestureRecognizer){
+        let loc = gesture.location(in: self.view)
+        
+        if ((gesture.view?.isKind(of: UITextField.self)) != nil)
+        {
+            gesture.view!.center = loc
+        }
+        
+        
+    }
 
 }

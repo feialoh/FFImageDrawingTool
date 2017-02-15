@@ -10,9 +10,9 @@ import UIKit
 
 
 enum DrawingMode:Int{
-    case None = 0,
-    Paint,
-    Erase
+    case none = 0,
+    paint,
+    erase
 }
 
 class DrawingView: UIView,UIGestureRecognizerDelegate, UITextViewDelegate {
@@ -33,9 +33,9 @@ class DrawingView: UIView,UIGestureRecognizerDelegate, UITextViewDelegate {
     }
     
     
-    override func drawRect(rect: CGRect) {
+    override func draw(_ rect: CGRect) {
         
-        self.viewImage.drawInRect(self.bounds)
+        self.viewImage.draw(in: self.bounds)
     }
     
       
@@ -46,12 +46,12 @@ class DrawingView: UIView,UIGestureRecognizerDelegate, UITextViewDelegate {
     
     func initialize()
     {
-        currentPoint = CGPointMake(0, 0)
+        currentPoint = CGPoint(x: 0, y: 0)
         previousPoint = currentPoint
         
-        self.drawingMode = DrawingMode.None
+        self.drawingMode = DrawingMode.none
         
-        self.selectedColor = UIColor.blackColor()
+        self.selectedColor = UIColor.black
     }
     
     //To clear the line drawn
@@ -66,19 +66,19 @@ class DrawingView: UIView,UIGestureRecognizerDelegate, UITextViewDelegate {
     func eraseLine()
     {
         UIGraphicsBeginImageContext(self.bounds.size)
-        self.viewImage.drawInRect(self.bounds)
+        self.viewImage.draw(in: self.bounds)
         
-        CGContextSetBlendMode(UIGraphicsGetCurrentContext(), CGBlendMode.Clear)
+        UIGraphicsGetCurrentContext()?.setBlendMode(CGBlendMode.clear)
         
-        CGContextSetLineCap(UIGraphicsGetCurrentContext(), CGLineCap.Round)
-        CGContextSetLineWidth(UIGraphicsGetCurrentContext(), lineWidth)
-        CGContextBeginPath(UIGraphicsGetCurrentContext())
-        CGContextSetBlendMode(UIGraphicsGetCurrentContext(), CGBlendMode.Clear)
-        CGContextMoveToPoint(UIGraphicsGetCurrentContext(), previousPoint!.x, previousPoint!.y)
-        CGContextAddLineToPoint(UIGraphicsGetCurrentContext(), currentPoint!.x, currentPoint!.y)
+        UIGraphicsGetCurrentContext()?.setLineCap(CGLineCap.round)
+        UIGraphicsGetCurrentContext()?.setLineWidth(lineWidth)
+        UIGraphicsGetCurrentContext()?.beginPath()
+        UIGraphicsGetCurrentContext()?.setBlendMode(CGBlendMode.clear)
+        UIGraphicsGetCurrentContext()?.move(to: CGPoint(x: previousPoint!.x, y: previousPoint!.y))
+        UIGraphicsGetCurrentContext()?.addLine(to: CGPoint(x: currentPoint!.x, y: currentPoint!.y))
         
-        CGContextStrokePath(UIGraphicsGetCurrentContext());
-        self.viewImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsGetCurrentContext()?.strokePath();
+        self.viewImage = UIGraphicsGetImageFromCurrentImageContext()!;
         UIGraphicsEndImageContext();
         previousPoint = currentPoint;
         
@@ -89,17 +89,17 @@ class DrawingView: UIView,UIGestureRecognizerDelegate, UITextViewDelegate {
     func drawLineNew()
     {
         UIGraphicsBeginImageContext(self.bounds.size)
-        self.viewImage.drawInRect(self.bounds)
+        self.viewImage.draw(in: self.bounds)
         
-        CGContextSetLineCap(UIGraphicsGetCurrentContext(), CGLineCap.Round);
-        CGContextSetStrokeColorWithColor(UIGraphicsGetCurrentContext(), self.selectedColor!.CGColor)
-        CGContextSetLineWidth(UIGraphicsGetCurrentContext(), lineWidth);
-        CGContextBeginPath(UIGraphicsGetCurrentContext());
-        CGContextMoveToPoint(UIGraphicsGetCurrentContext(), previousPoint!.x, previousPoint!.y)
-        CGContextAddLineToPoint(UIGraphicsGetCurrentContext(), currentPoint!.x, currentPoint!.y)
+        UIGraphicsGetCurrentContext()?.setLineCap(CGLineCap.round);
+        UIGraphicsGetCurrentContext()?.setStrokeColor(self.selectedColor!.cgColor)
+        UIGraphicsGetCurrentContext()?.setLineWidth(lineWidth);
+        UIGraphicsGetCurrentContext()?.beginPath();
+        UIGraphicsGetCurrentContext()?.move(to: CGPoint(x: previousPoint!.x, y: previousPoint!.y))
+        UIGraphicsGetCurrentContext()?.addLine(to: CGPoint(x: currentPoint!.x, y: currentPoint!.y))
         
-        CGContextStrokePath(UIGraphicsGetCurrentContext())
-        self.viewImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsGetCurrentContext()?.strokePath()
+        self.viewImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         previousPoint = currentPoint
         
@@ -109,10 +109,10 @@ class DrawingView: UIView,UIGestureRecognizerDelegate, UITextViewDelegate {
     //To handle touch events
     func handleTouches()
     {
-        if (self.drawingMode == DrawingMode.None) {
+        if (self.drawingMode == DrawingMode.none) {
             // do nothing
         }
-        else if (self.drawingMode == DrawingMode.Paint) {
+        else if (self.drawingMode == DrawingMode.paint) {
            drawLineNew()
         }
         else
@@ -122,17 +122,17 @@ class DrawingView: UIView,UIGestureRecognizerDelegate, UITextViewDelegate {
     }
     
     //To save the new image
-    func saveImage(mainView:UIView) -> UIImage
+    func saveImage(_ mainView:UIView) -> UIImage
     {
         UIGraphicsBeginImageContextWithOptions(mainView.layer.frame.size, false, 0.0);
-        mainView.layer.renderInContext(UIGraphicsGetCurrentContext()!)
+        mainView.layer.render(in: UIGraphicsGetCurrentContext()!)
         for items in textFieldArray{
             mainView.addSubview(items)
         }
         let myImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-        return myImage
+        return myImage!
 
     }
     
@@ -140,15 +140,15 @@ class DrawingView: UIView,UIGestureRecognizerDelegate, UITextViewDelegate {
     
     func addTextView()
     {
-        let fieldFrame = CGRectMake(self.center.x, self.center.y, 75, 20)
+        let fieldFrame = CGRect(x: self.center.x, y: self.center.y, width: 75, height: 20)
         newView.frame = fieldFrame
-        newView.backgroundColor = UIColor.whiteColor()
+        newView.backgroundColor = UIColor.white
         self.addSubview(newView)
-        self.bringSubviewToFront(newView)
+        self.bringSubview(toFront: newView)
         
         let pan = UIPanGestureRecognizer(target: self, action: #selector(DrawingView.textFieldMoved(_:)))
         pan.delegate = self
-        pan.view?.backgroundColor = UIColor.blueColor()
+        pan.view?.backgroundColor = UIColor.blue
         newView.addGestureRecognizer(pan)
     }
     
@@ -157,8 +157,8 @@ class DrawingView: UIView,UIGestureRecognizerDelegate, UITextViewDelegate {
         if selectedTextView != nil{
             
             selectedTextView!.removeFromSuperview()
-            if let viewIndex = textFieldArray.indexOf(selectedTextView!){
-                textFieldArray.removeAtIndex(viewIndex)
+            if let viewIndex = textFieldArray.index(of: selectedTextView!){
+                textFieldArray.remove(at: viewIndex)
             }
         }
     }
@@ -167,29 +167,29 @@ class DrawingView: UIView,UIGestureRecognizerDelegate, UITextViewDelegate {
     // MARK: - Touches methods
     /*===============================================================================*/
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 
         if let touch = (touches.first)  {
-            previousPoint = touch.locationInView(self)
+            previousPoint = touch.location(in: self)
         }
 
         
     }
     
-    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         if let touch = touches.first{
-            currentPoint = touch.locationInView(self)
+            currentPoint = touch.location(in: self)
             handleTouches()
         }
         
         
     }
 
-    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         if let touch = touches.first{
-            currentPoint = touch.locationInView(self)
+            currentPoint = touch.location(in: self)
             handleTouches()
         }
         
@@ -201,43 +201,43 @@ class DrawingView: UIView,UIGestureRecognizerDelegate, UITextViewDelegate {
     /*===============================================================================*/
     
     
-    func textViewDidBeginEditing(textView: UITextView) {
+    func textViewDidBeginEditing(_ textView: UITextView) {
         selectedTextView = textView
     }
     
-    func textViewDidChange(textView: UITextView) {
+    func textViewDidChange(_ textView: UITextView) {
         var newFrame = textView.frame
         newFrame.size.height = textView.contentSize.height < self.frame.height/8 ? textView.contentSize.height : self.frame.height/8
         textView.frame = newFrame
     }
     
-    func textFieldMoved(sender: UIPanGestureRecognizer){
+    func textFieldMoved(_ sender: UIPanGestureRecognizer){
         
         switch sender.state {
             
-        case UIGestureRecognizerState.Began :
+        case UIGestureRecognizerState.began :
             
             break
             
-        case UIGestureRecognizerState.Changed :
+        case UIGestureRecognizerState.changed :
             
-            let point = sender.locationInView(self)
+            let point = sender.location(in: self)
             newView.center = point
             break
             
-        case UIGestureRecognizerState.Ended :
+        case UIGestureRecognizerState.ended :
             
-            let point = sender.locationInView(self)
+            let point = sender.location(in: self)
             newView.center = point
             let newField = UITextView(frame: newView.frame)
             newField.textContainerInset = UIEdgeInsetsMake(2, 2, 2, 2)
             newField.layer.cornerRadius = 3
             newField.layer.borderWidth = 0.5
-            newField.backgroundColor = UIColor.clearColor()
+            newField.backgroundColor = UIColor.clear
             newField.delegate = self
             self.addSubview(newField)
             textFieldArray.append(newField)
-            self.bringSubviewToFront(newField)
+            self.bringSubview(toFront: newField)
             newView.removeFromSuperview()
             
             break
