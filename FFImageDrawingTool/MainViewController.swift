@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController,ImageSelectorDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
+class MainViewController: UIViewController,ImageSelectorDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIScrollViewDelegate  {
 
     
     
@@ -24,6 +24,7 @@ class MainViewController: UIViewController,ImageSelectorDelegate,UIImagePickerCo
         imagePicker.allowsEditing = false
         imageContainerScrollView.minimumZoomScale = 1.0
         imageContainerScrollView.maximumZoomScale = 2.0
+        imageContainerScrollView.delegate = self
         // Do any additional setup after loading the view.
     }
 
@@ -35,18 +36,18 @@ class MainViewController: UIViewController,ImageSelectorDelegate,UIImagePickerCo
     
     @IBAction func imagePickerAction(_ sender: UIButton) {
         
-        let alert:UIAlertController=UIAlertController(title: "Choose Image", message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
-        let cameraAction = UIAlertAction(title: "Take Photo", style: UIAlertActionStyle.default)
+        let alert:UIAlertController=UIAlertController(title: "Choose Image", message: nil, preferredStyle: UIAlertController.Style.actionSheet)
+        let cameraAction = UIAlertAction(title: "Take Photo", style: UIAlertAction.Style.default)
             {
                 UIAlertAction in
                 self.openCamera()
         }
-        let photoLibraryAction = UIAlertAction(title: "Photo Library", style: UIAlertActionStyle.default)
+        let photoLibraryAction = UIAlertAction(title: "Photo Library", style: UIAlertAction.Style.default)
             {
                 UIAlertAction in
                 self.openLibrary()
         }
-        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel)
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel)
             {
                 UIAlertAction in
         }
@@ -82,9 +83,9 @@ class MainViewController: UIViewController,ImageSelectorDelegate,UIImagePickerCo
     //To open camera
     func openCamera()
     {
-        if(UIImagePickerController .isSourceTypeAvailable(UIImagePickerControllerSourceType.camera))
+        if(UIImagePickerController .isSourceTypeAvailable(UIImagePickerController.SourceType.camera))
         {
-            imagePicker.sourceType = UIImagePickerControllerSourceType.camera
+            imagePicker.sourceType = UIImagePickerController.SourceType.camera
             self .present(imagePicker, animated: true, completion: nil)
         }
         else
@@ -97,14 +98,14 @@ class MainViewController: UIViewController,ImageSelectorDelegate,UIImagePickerCo
     //To open photo library
     func openLibrary()
     {
-        imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
+        imagePicker.sourceType = UIImagePickerController.SourceType.photoLibrary
         if UIDevice.current.userInterfaceIdiom == .phone
         {
             self.present(imagePicker, animated: true, completion: nil)
         }
         else
         {
-            imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
+            imagePicker.sourceType = UIImagePickerController.SourceType.photoLibrary
             
             self.present(imagePicker, animated: true, completion: nil)
         }
@@ -131,8 +132,7 @@ class MainViewController: UIViewController,ImageSelectorDelegate,UIImagePickerCo
         // Pass the selected object to the new view controller.
     }
     */
-
-    func viewForZoomingInScrollView(_ scrollView: UIScrollView) -> UIView? {
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         return selectedImage
     }
     
@@ -146,9 +146,12 @@ class MainViewController: UIViewController,ImageSelectorDelegate,UIImagePickerCo
         })
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+// Local variable inserted by Swift 4.2 migrator.
+let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
+
         
-        let chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage //2
+        let chosenImage = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.originalImage)] as! UIImage //2
         
         picker.dismiss(animated: true, completion: { () -> Void in
             
@@ -166,4 +169,14 @@ class MainViewController: UIViewController,ImageSelectorDelegate,UIImagePickerCo
         self.present(imageView, animated: true, completion: nil)
     }
 
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKeyDictionary(_ input: [UIImagePickerController.InfoKey: Any]) -> [String: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map {key, value in (key.rawValue, value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKey(_ input: UIImagePickerController.InfoKey) -> String {
+	return input.rawValue
 }

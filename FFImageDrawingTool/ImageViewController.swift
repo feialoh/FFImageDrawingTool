@@ -64,7 +64,7 @@ class ImageViewController: UIViewController, UIScrollViewDelegate, UIPopoverPres
     
     override func viewWillAppear(_ animated: Bool) {
         
-        NotificationCenter.default.addObserver(self, selector: #selector(ImageViewController.deviceRotatedInImageView), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ImageViewController.deviceRotatedInImageView), name: UIDevice.orientationDidChangeNotification, object: nil)
         
     }
     
@@ -97,7 +97,7 @@ class ImageViewController: UIViewController, UIScrollViewDelegate, UIPopoverPres
     
     //Device Rotated
     
-    func deviceRotatedInImageView()
+    @objc func deviceRotatedInImageView()
     {
         drawerView.setNeedsDisplay()
         
@@ -216,7 +216,7 @@ class ImageViewController: UIViewController, UIScrollViewDelegate, UIPopoverPres
         self.view.addSubview(bottomTextField)
     }
     
-    func userDragged(_ gesture: UIPanGestureRecognizer){
+    @objc func userDragged(_ gesture: UIPanGestureRecognizer){
         let loc = gesture.location(in: self.view)
         
         if ((gesture.view?.isKind(of: UITextField.self)) != nil)

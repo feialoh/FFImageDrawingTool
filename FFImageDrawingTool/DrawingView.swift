@@ -144,7 +144,7 @@ class DrawingView: UIView,UIGestureRecognizerDelegate, UITextViewDelegate {
         newView.frame = fieldFrame
         newView.backgroundColor = UIColor.white
         self.addSubview(newView)
-        self.bringSubview(toFront: newView)
+        self.bringSubviewToFront(newView)
         
         let pan = UIPanGestureRecognizer(target: self, action: #selector(DrawingView.textFieldMoved(_:)))
         pan.delegate = self
@@ -211,33 +211,33 @@ class DrawingView: UIView,UIGestureRecognizerDelegate, UITextViewDelegate {
         textView.frame = newFrame
     }
     
-    func textFieldMoved(_ sender: UIPanGestureRecognizer){
+    @objc func textFieldMoved(_ sender: UIPanGestureRecognizer){
         
         switch sender.state {
             
-        case UIGestureRecognizerState.began :
+        case UIGestureRecognizer.State.began :
             
             break
             
-        case UIGestureRecognizerState.changed :
+        case UIGestureRecognizer.State.changed :
             
             let point = sender.location(in: self)
             newView.center = point
             break
             
-        case UIGestureRecognizerState.ended :
+        case UIGestureRecognizer.State.ended :
             
             let point = sender.location(in: self)
             newView.center = point
             let newField = UITextView(frame: newView.frame)
-            newField.textContainerInset = UIEdgeInsetsMake(2, 2, 2, 2)
+            newField.textContainerInset = UIEdgeInsets.init(top: 2, left: 2, bottom: 2, right: 2)
             newField.layer.cornerRadius = 3
             newField.layer.borderWidth = 0.5
             newField.backgroundColor = UIColor.clear
             newField.delegate = self
             self.addSubview(newField)
             textFieldArray.append(newField)
-            self.bringSubview(toFront: newField)
+            self.bringSubviewToFront(newField)
             newView.removeFromSuperview()
             
             break

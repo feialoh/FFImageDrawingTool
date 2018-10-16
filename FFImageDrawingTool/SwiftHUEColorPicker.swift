@@ -247,9 +247,9 @@ open class SwiftHUEColorPicker: UIView {
 		let textParagraphStyle = NSMutableParagraphStyle()
 		textParagraphStyle.alignment = .center
 		
-		let attributes: NSDictionary = [NSForegroundColorAttributeName: labelFontColor,
-										NSParagraphStyleAttributeName: textParagraphStyle,
-										NSFontAttributeName: labelFont!]
+		let attributes: NSDictionary = [convertFromNSAttributedStringKey(NSAttributedString.Key.foregroundColor): labelFontColor,
+										convertFromNSAttributedStringKey(NSAttributedString.Key.paragraphStyle): textParagraphStyle,
+										convertFromNSAttributedStringKey(NSAttributedString.Key.font): labelFont!]
 		
 		var value: CGFloat = 0;
 		switch type {
@@ -271,7 +271,7 @@ open class SwiftHUEColorPicker: UIView {
 		let text: NSString = "\(textValue)" as NSString
 		var textRect = circleRect
 		textRect.origin.y += (textRect.size.height - (labelFont?.lineHeight)!) * 0.5
-		text.draw(in: textRect, withAttributes: attributes as? [String : AnyObject])
+		text.draw(in: textRect, withAttributes: convertToOptionalNSAttributedStringKeyDictionary(attributes as? [String : AnyObject]))
 	}
 	
 	// MARK: - Touch events
@@ -346,4 +346,15 @@ open class SwiftHUEColorPicker: UIView {
 		setNeedsDisplay()
 	}
 	
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromNSAttributedStringKey(_ input: NSAttributedString.Key) -> String {
+	return input.rawValue
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToOptionalNSAttributedStringKeyDictionary(_ input: [String: Any]?) -> [NSAttributedString.Key: Any]? {
+	guard let input = input else { return nil }
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
 }
