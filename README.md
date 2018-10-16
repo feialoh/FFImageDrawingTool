@@ -2,7 +2,7 @@
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Platform](https://img.shields.io/badge/platform-ios-lightgrey.svg)
-![Language](https://img.shields.io/badge/swift-3-blue.svg)
+![Language](https://img.shields.io/badge/swift-4.2-blue.svg)
 ![OS](https://img.shields.io/badge/ios-8.0%2B-blue.svg)
 
 Simple drawing on images which includes line drawing, erase, reset and zoom. Also uses [SwiftHUEColorPicker](https://github.com/maximbilan/SwiftHUEColorPicker) for color picking
@@ -13,8 +13,8 @@ Drag `DrawingView.swift` to your project. Set your required UIView class in stor
 
 sample usage:
 <pre>
-        drawerView.selectedColor = UIColor.whiteColor() // for setting brush color
-        drawerView.drawingMode = DrawingMode.Paint // for choosing mode
+        drawerView.selectedColor = UIColor.white // for setting brush color
+        drawerView.drawingMode = DrawingMode.paint // for choosing mode
         drawerView.lineWidth = CGFloat(brushWidthSlider.value) // for setting brush width
 </pre>
 
