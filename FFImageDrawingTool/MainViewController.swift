@@ -161,11 +161,9 @@ let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
         let imageView = self.storyboard?.instantiateViewController(withIdentifier: "ImageView") as! ImageViewController
         
         imageView.delegate = self
-        
         imageView.selectedImage = chosenImage
-        
         imageView.viewType = "Picker"
-        
+        imageView.modalPresentationStyle = .fullScreen
         self.present(imageView, animated: true, completion: nil)
     }
 
